@@ -88,13 +88,15 @@ const appendPaginationLinks = () => {
 
    //added event listener to the pagination
    paginationDiv.addEventListener('click',function(e){
-      showStudentsOnPage(e.target.text);
+      if (e.target.nodeName === "A"){
+         showStudentsOnPage(e.target.text);
 
-      //removed class .active from current active pagination number
-      e.target.parentElement.parentElement.querySelector('.active').className = "";
-      
-      //and added class .active to the just clicked on
-      e.target.className = "active";
+         //removed class .active from current active pagination number
+         e.target.parentElement.parentElement.querySelector('.active').className = "";
+         
+         //and added class .active to the just clicked on
+         e.target.className = "active";
+      }
    })
 }
 const createSearchField = () => {
